@@ -1,0 +1,37 @@
+1. Удаление старый дров
+
+sudo apt-get autoremove --purge fglrx\*
+
+sudo sh /usr/share/ati/fglrx-uninstall.sh --force
+
+reboot
+
+2.Установка пакетов необходимых для компиляции
+
+sudo apt-get install build-essential cdbs fakeroot dh-make debhelper debconf libstdc++6 dkms libqtgui4 wget execstack libelfg0 dh-modaliases xserver-xorg-dev libgcc1 lib32gcc1 libc6-i386
+
+sudo apt-get install build-essential cdbs fakeroot dh-make debhelper debconf libstdc++6 dkms libqtgui4 wget execstack libelfg0 dh-modaliases xserver-xorg-dev libgcc1 lib32gcc1 libc6-i386
+
+3.Компиляция
+
+cd drv/
+
+sudo ./ati-installer.sh 14.501 --buildpkg Ubuntu/trusty
+
+cd ..
+
+4.Установка
+
+sudo apt-get install fglrx-core (?)
+
+sudo chmod a+x *.deb
+
+sudo dpkg -i *.deb
+
+sudo aticonfig --initial -f
+
+5. Reboot
+sudo reboot
+
+
+
